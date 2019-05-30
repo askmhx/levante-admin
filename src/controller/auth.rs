@@ -1,10 +1,11 @@
-extern crate actix;
-extern crate diesel;
+mod controller {
 
-use actix_web::{HttpRequest, Responder};
+    use actix_web::{HttpRequest, Responder};
 
 
-fn greet(req: &HttpRequest) -> impl Responder {
-    let to = req.match_info().get("name").unwrap_or("World");
-    format!("Hello {}!", to)
+    fn greet(req: &HttpRequest) -> impl Responder {
+        let to = req.match_info().get("name").unwrap_or("World");
+        format!("Hello {}!", to)
+    }
+
 }

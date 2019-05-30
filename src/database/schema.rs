@@ -1,4 +1,5 @@
-table! {
+mod database {
+    table! {
     lv_links (id) {
         id -> Integer,
         created_at -> Nullable<Timestamp>,
@@ -20,7 +21,7 @@ table! {
     }
 }
 
-table! {
+    table! {
     lv_link_groups (id) {
         id -> Integer,
         created_at -> Nullable<Timestamp>,
@@ -35,7 +36,7 @@ table! {
     }
 }
 
-table! {
+    table! {
     wp_commentmeta (meta_id) {
         meta_id -> Bigint,
         comment_id -> Bigint,
@@ -44,7 +45,7 @@ table! {
     }
 }
 
-table! {
+    table! {
     wp_comments (comment_ID) {
         comment_ID -> Bigint,
         comment_post_ID -> Bigint,
@@ -64,7 +65,7 @@ table! {
     }
 }
 
-table! {
+    table! {
     wp_links (link_id) {
         link_id -> Bigint,
         link_url -> Varchar,
@@ -82,7 +83,7 @@ table! {
     }
 }
 
-table! {
+    table! {
     wp_options (option_id) {
         option_id -> Bigint,
         option_name -> Varchar,
@@ -91,7 +92,7 @@ table! {
     }
 }
 
-table! {
+    table! {
     wp_postmeta (meta_id) {
         meta_id -> Bigint,
         post_id -> Bigint,
@@ -100,7 +101,7 @@ table! {
     }
 }
 
-table! {
+    table! {
     wp_posts (ID) {
         ID -> Bigint,
         post_author -> Bigint,
@@ -128,7 +129,7 @@ table! {
     }
 }
 
-table! {
+    table! {
     wp_termmeta (meta_id) {
         meta_id -> Bigint,
         term_id -> Bigint,
@@ -137,7 +138,7 @@ table! {
     }
 }
 
-table! {
+    table! {
     wp_terms (term_id) {
         term_id -> Bigint,
         name -> Varchar,
@@ -146,7 +147,7 @@ table! {
     }
 }
 
-table! {
+    table! {
     wp_term_relationships (object_id, term_taxonomy_id) {
         object_id -> Bigint,
         term_taxonomy_id -> Bigint,
@@ -154,7 +155,7 @@ table! {
     }
 }
 
-table! {
+    table! {
     wp_term_taxonomy (term_taxonomy_id) {
         term_taxonomy_id -> Bigint,
         term_id -> Bigint,
@@ -165,7 +166,7 @@ table! {
     }
 }
 
-table! {
+    table! {
     wp_usermeta (umeta_id) {
         umeta_id -> Bigint,
         user_id -> Bigint,
@@ -174,7 +175,7 @@ table! {
     }
 }
 
-table! {
+    table! {
     wp_users (ID) {
         ID -> Bigint,
         user_login -> Varchar,
@@ -189,7 +190,7 @@ table! {
     }
 }
 
-allow_tables_to_appear_in_same_query!(
+    allow_tables_to_appear_in_same_query!(
     lv_links,
     lv_link_groups,
     wp_commentmeta,
@@ -205,3 +206,5 @@ allow_tables_to_appear_in_same_query!(
     wp_usermeta,
     wp_users,
 );
+
+}
