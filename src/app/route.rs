@@ -1,6 +1,3 @@
-mod app {
-    use actix_web::App;
+use actix_web::{App,AppEntry,Body};
 
-    pub fn init_route(app: &App<super::bootstrap::State>) {
-    }
-}
+pub fn init_route(app: &App<AppEntry, Body>) {}
