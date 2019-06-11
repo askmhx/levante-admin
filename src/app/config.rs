@@ -2,7 +2,7 @@ use std::fs::File;
 use std::fmt;
 use std::net::IpAddr;
 use std::error::Error;
-use serde_json;
+use serde::{Serialize, Deserialize};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct DbConfig {
@@ -23,8 +23,11 @@ impl fmt::Display for DbConfig {
 #[derive(Serialize, Deserialize, Debug)]
 pub struct LogConfig {
     pub file: String,
+    #[serde(rename(deserialize = "rotateCount"))]
     pub rotate_count: u16,
+    #[serde(rename(deserialize = "rotateType"))]
     pub rotate_type: String,
+    #[serde(rename(deserialize = "rotateValue"))]
     pub rotate_value: String,
     pub level: String,
 }

@@ -1,18 +1,6 @@
 use chrono::NaiveDateTime;
-use crate::database::schema::lv_links;
-use crate::database::schema::lv_link_groups;
-use crate::database::schema::wp_commentmeta;
-use crate::database::schema::wp_comments;
-use crate::database::schema::wp_links;
-use crate::database::schema::wp_options;
-use crate::database::schema::wp_postmeta;
-use crate::database::schema::wp_posts;
-use crate::database::schema::wp_termmeta;
-use crate::database::schema::wp_terms;
-use crate::database::schema::wp_term_relationships;
-use crate::database::schema::wp_term_taxonomy;
-use crate::database::schema::wp_usermeta;
-use crate::database::schema::wp_users;
+use diesel::{Queryable,Insertable};
+use crate::database::schema::*;
 
 #[derive(Debug, Queryable, Insertable)]
 #[table_name = "lv_links"]

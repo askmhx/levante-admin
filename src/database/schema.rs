@@ -1,3 +1,4 @@
+
 table! {
     lv_links (id) {
         id -> Integer,
