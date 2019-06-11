@@ -2,6 +2,6 @@ use serde::{Serialize, Deserialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct Result {
-    pub rspDesc: String,
-    pub rspCode: String,
+    pub rsp_desc: String,
+    pub rsp_code: String,
 }

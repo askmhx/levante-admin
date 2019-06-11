@@ -1,6 +1,6 @@
-use actix_web::{HttpRequest, Responder};
+use actix_web::{HttpRequest,post};
 
-fn xmlrpc(req: &HttpRequest) -> impl Responder {
-    let to = req.match_info().get("name").unwrap_or("World");
-    format!("Hello {}!", to)
+#[post("/xmlrpc.php")]
+fn xmlrpc(req: HttpRequest) -> String {
+    format!("Hello {}! id:{}", req.uri(), req.method())
 }
