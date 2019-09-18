@@ -15,8 +15,9 @@ use crate::app::route::routers;
 use crate::app::config::AppConfig;
 
 fn main() -> io::Result<()> {
-    std::env::set_var("RUST_LOG", "actix_server=debug,actix_web=info");
-    let filepath = std::env::args().nth(1).expect("Missing configration file path");
+    std::env::set_var("RUST_LOG", "actix_server=debug,actix_web=debug");
+    env_logger::init();
+    let filepath = std::env::args().nth(1).expect("Missing configuration file path");
     let config = AppConfig::from_file(filepath).unwrap();
     let pool = manager::init_pool(config.database.to_string());
     let sys = actix_rt::System::new("levante-admin");
